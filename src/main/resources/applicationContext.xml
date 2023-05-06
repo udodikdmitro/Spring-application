@@ -10,13 +10,17 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="prog.mavenstart.ClassicalMusic">
+            class="prog.mavenstart.ClassicalMusic"
+            init-method="doMyInit"
+            destroy-method="doMyDestroy"
+            factory-method = "getClassicalMusic">
     </bean>
-    <bean id = "musicPlayer"
-    class="prog.mavenstart.MusicPlayer">
-        <property name = "music" ref= "musicBean"/>
-        <property name = "name" value = "${musicPlayer.name}"/>
-        <property name = "volume" value = "${musicPlayer.volume}"/>
-    </bean>
+<!--    <bean id = "musicPlayer"-->
+<!--          class = "prog.mavenstart.MusicPlayer"-->
+<!--          scope = "prototype">-->
+<!--        <property name = "music" ref= "musicBean"/>-->
+<!--        <property name = "name" value = "${musicPlayer.name}"/>-->
+<!--        <property name = "volume" value = "${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 </beans>
